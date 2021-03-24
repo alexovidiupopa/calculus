@@ -1,0 +1,1 @@
+x1 = [1 1.05 1.10];f = @(x)3*x.*exp(x)-exp(2*x);d = @(x)3*exp(x) + 3*x.*exp(x) - 2*exp(2*x);n = 1.03;[h1, p1] = HermitePolBonus(x1, f(x1), d(x1), n)e1 = abs(f(n)-h1)x2 = [1 1.05 1.07 1.11 1.13];[h2, p2] = HermitePolBonus(x2, f(x2), d(x2), n)e2 = abs(f(n)-h2)hold on; plot(x1, f(x1));plot(x1, p1, 'x');plot(x2, p2, 'o');
