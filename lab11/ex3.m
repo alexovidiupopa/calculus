@@ -16,18 +16,16 @@ endfor
 % compute matrices
 for i=2:m
     for j=1:m
-        for k=1:i-1
+        for k=1:i-1  % triangle under the diagonal
             s1=0;
-            if k==1
-                s1=0;
-            else
-            for p=1:k-1
+            if k!=1
+              for p=1:k-1
                 s1=s1+L(i,p)*U(p,k);
-            endfor
+              endfor       
             endif
             L(i,k)=(A(i,k)-s1)/U(k,k);
-           endfor
-         for k=i:m
+         endfor
+         for k=i:m   % triangle above the diagonal
            s2=0;
            for p=1:i-1
                s2=s2+L(i,p)*U(p,k);
